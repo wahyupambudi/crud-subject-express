@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title>Data Mata Pelajaran</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Data Guru <i class="text-primary"></i></h1>
+        <a href="/newg" class="btn btn-danger" style="float: right;">Tambah Data Guru</a> <br><br>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr class="text-center bg-primary text-light">
+                        <td>Kode Guru</td>
+                        <td>Nama Guru</td>
+                        <td>Aksi</td>
+                    </tr>
+                </thead>
+                <% teachers.forEach((teacher) => { %>
+                <tbody>
+                    <tr class="text-center">
+                        <td><%= teacher.id_guru %></td>
+                        <td><%= teacher.nama_guru %></td>
+                        <td>
+                            <form action="/deleteg/<%= teacher.id_guru %>" method="post" style="display: inline-block;">
+                                <input class="btn btn-danger btn-sm" type="submit" value="Hapus">
+                            </form>
+                            <a href="/editg/<%= teacher.id_guru %>" class="btn btn-warning btn-sm"
+                                style="display: inline-block;">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <% }) %>
+            </table>
+            <a href="/" class="btn btn-warning">Kembali</a>
+        </div>
+    </div>
+</body>
+
+</html>

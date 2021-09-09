@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title>Data Mata Pelajaran</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mata Pelajaran <i class="text-primary"></i></h1>
+        <a href="/" class="btn btn-danger" style="float: right;">Tambah Data Guru</a> <br><br>
+        <% allmapels.forEach((allmapel) => { %>
+        <ul>
+            <li>Kelas : <%= allmapel.id_kls %></li>
+        </ul>
+        <% }) %>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr class="text-center bg-primary text-light">
+                        <td>Hari</td>
+                        <td>Kode Mapel</td>
+                        <td>Kode Guru</td>
+                        <td>Jam Mulai</td>
+                        <td>Jam Selesai</td>
+                        <td>Aksi</td>
+                    </tr>
+                </thead>
+                <% allmapels.forEach((allmapel) => { %>
+                <tbody>
+                    <tr class="text-center">
+                        <td><%= allmapel.id_hari %></td>
+                        <td><%= allmapel.id_mapel %></td>
+                        <td><%= allmapel.id_guru %></td>
+                        <td>Jam Ke - <%= allmapel.mulai %></td>
+                        <td>Jam Ke - <%= allmapel.selesai %></td>
+                        <td>
+                            <form action="/delete/<%= allmapel.id %>" method="post" style="display: inline-block;">
+                                <input class="btn btn-danger btn-sm" type="submit" value="Hapus">
+                            </form>
+                            <a href="/edit/<%= allmapel.id %>" class="btn btn-warning btn-sm"
+                                style="display: inline-block;">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <% }) %>
+            </table>
+            <a href="/" class="btn btn-warning">Kembali</a>
+        </div>
+    </div>
+</body>
+
+</html>

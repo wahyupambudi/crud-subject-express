@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title>Data Mata Pelajaran</title>
+</head>
+
+<body>
+    <div class="container">
+            <h1>Mata Pelajaran <i class="text-primary"></i></h1>
+            <a href="/" class="btn btn-danger" style="float: right;">Tambah Data Mata Pelajaran</a> <br><br>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr class="text-center bg-primary text-light">
+                        <td>Kode Mapel</td>
+                        <td>Nama Mata Pelajaran</td>
+                        <td>Aksi</td>
+                    </tr>
+                </thead>
+                <% mapels.forEach((mapel) => { %>
+                <tbody>
+                    <tr class="text-center">
+                        <td><%= mapel.id_mapel %></td>
+                        <td><%= mapel.nama_mapel %></td>
+                        <td>
+                            <form action="/delete/<%= mapel.id %>" method="post" style="display: inline-block;">
+                                <input class="btn btn-danger btn-sm" type="submit" value="Hapus">
+                            </form>
+                            <a href="/edit/<%= mapel.id %>" class="btn btn-warning btn-sm"
+                                style="display: inline-block;">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <% }) %>
+            </table>
+            <a href="/" class="btn btn-warning">Kembali</a>
+        </div>
+    </div>
+</body>
+
+</html>
