@@ -71,6 +71,18 @@ app.get("/editg/:id", (req, res) => {
   );
 });
 
+app.post("/updateg/:id", (req, res) => {
+  con.query(
+    "UPDATE guru SET nama_guru = ? WHERE id_guru = ?",
+    [req.body.namaGuru, req.params.id],
+    (error, results) => {
+      console.log(error);
+      console.log(results);
+      res.redirect("/guru");
+    }
+  );
+});
+
 // delete guru
 app.post("/deleteg/:id", (req, res) => {
   con.query(
