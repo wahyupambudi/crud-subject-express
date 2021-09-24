@@ -21,6 +21,13 @@
 <body>
     <div class="container text-center" style="margin: 0 auto; padding: 100px 0 100px 0;">
         <h1>Edit Data Guru</h1>
+        <% if(errors.length > 0) { %>
+            <ul>
+               <% errors.forEach(error => { %>
+                <li><%= error %></li>
+                <% }); %>
+            </ul>
+            <% } %>
         <a href="/guru" class="btn btn-warning btn-sm kan">Kembali</a><br><br>
         <form action="/updateg/<%= gurus.id_guru %>" method="post">
             <input class="form-control" type="text" name="idGuru" value="<%= gurus.id_guru %>" placeholder="Masukkan Kode Guru"><br>

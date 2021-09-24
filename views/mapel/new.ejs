@@ -20,8 +20,8 @@
 
 <body>
     <div class="container text-center" style="margin: 0 auto; padding: 100px 0 100px 0;">
-        <h1>Add Data Guru</h1>
-        <a href="/guru" class="btn btn-warning btn-sm kan">Kembali</a><br><br>
+        <h1>Add Data Mata Pelajaran</h1>
+        <a href="/mapel" class="btn btn-warning btn-sm kan">Kembali</a><br><br>
         <% if(errors.length > 0) { %>
             <ul>
                <% errors.forEach(error => { %>
@@ -29,9 +29,9 @@
                 <% }); %>
             </ul>
             <% } %>
-        <form action="/createg" method="post">
-            <input class="form-control" type="text" name="idGuru" placeholder="Masukkan Kode Guru"><br>
-            <input class="form-control" type="text" name="namaGuru" placeholder="Masukkan Nama Guru"><br>
+        <form action="/createmapel" method="post">
+            <input class="form-control" type="text" name="idMapel" placeholder="Masukkan Kode Mata Pelajaran"><br>
+            <input class="form-control" type="text" name="namaMapel" placeholder="Masukkan Nama Mata Pelajaran"><br>
             <input type="submit" value="Submit" class="btn btn-primary">
         </form>
     </div>
